@@ -151,7 +151,7 @@ class etsis_Cache_Filesystem extends \app\src\Core\Cache\etsis_Abstract_Cache
          */
         if (!is_dir($cacheDir) || !etsis_file_exists($cacheDir, false)) {
             try {
-                _mkdir($cacheDir);
+                mkdir($cacheDir);
             } catch (IOException $e) {
                 Cascade::getLogger('error')->error(sprintf('IOSTATE[%s]: Forbidden: %s', $e->getCode(), $e->getMessage()));
             } catch (Exception $e) {
@@ -737,7 +737,7 @@ class etsis_Cache_Filesystem extends \app\src\Core\Cache\etsis_Abstract_Cache
         $dir = $this->_dir . urlencode($namespace);
         if (!etsis_file_exists($dir, false)) {
             try {
-                _mkdir($dir);
+                mkdir($dir);
             } catch (IOException $e) {
                 Cascade::getLogger('error')->error(sprintf('IOSTATE[%s]: Forbidden: %s', $e->getCode(), $e->getMessage()));
                 return;
