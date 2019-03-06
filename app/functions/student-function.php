@@ -468,7 +468,7 @@ function shoppingCart()
             }
             return $array;
         });
-        if (count($q[0]['stuID']) > 0) {
+        if (sizeof($q) > 0) {
             return true;
         }
     } catch (NotFoundException $e) {
