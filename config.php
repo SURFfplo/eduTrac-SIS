@@ -10,9 +10,10 @@
  */
 // Initial Installation Info!
 $system = [];
-$system['title'] = '{product}';
-$system['release'] = '{release}';
-$system['installed'] = '{datenow}';
+$system['title'] = 'eduTrac SIS';
+$system['release'] = '6.3.4';
+$system['installed'] = '2019-02-28 21:44:43';
+
 
 /**
  * If set to PROD, errors will be generated in the logs
@@ -78,8 +79,8 @@ if (count($domain_parts) == 3) {
 $app = new \Liten\Liten(
     [
     'cookies.lifetime' => '86400',
-    'cookies.savepath' => ini_get('session.save_path') . DS . $subdomain . DS,
-    'file.savepath' => ini_get('session.save_path') . DS . $subdomain . DS . 'files' . DS
+    'cookies.savepath' => '/var/www/etsis_tmp' . DS . $subdomain . DS,
+    'file.savepath' => '/var/www/etsis_tmp' . DS . $subdomain . DS . 'files' . DS
     ]
 );
 
@@ -179,7 +180,7 @@ benchmark_init();
 /**
  * Set the timezone for the application.
  */
-date_default_timezone_set((get_option('system_timezone') !== NULL) ? get_option('system_timezone') : 'America/New_York');
+date_default_timezone_set((get_option('system_timezone') !== NULL) ? get_option('system_timezone') : 'Europe/Amsterdam');
 
 /**
  * Autoload Dropins
